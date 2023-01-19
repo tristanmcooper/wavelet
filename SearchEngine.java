@@ -11,7 +11,7 @@ class Handler implements URLHandler {
     public String printArray() {
         String finalString = "";
         for (int i = 0; i < listOfStrings.size(); i++) {
-            finalString += listOfStrings.get(i) +"\t";
+            finalString += listOfStrings.get(i)+"," +"\t";
         }
         return finalString;
 
@@ -31,8 +31,8 @@ class Handler implements URLHandler {
                         listOfStrings.add(parameters[i]);
                     }
                     String printedArray = printArray();
-                    return String.format("TESTING" +
-                    "'%s' added to the list.\nThere are now this many items in the list: %d \n List: %s", 
+                    return String.format(
+                    "'%s' added to the list.\n\nThere are now this many items in the list: %d \n\nList: \t%s", 
                     parameters[1], listOfStrings.size(), printedArray);
                 }
             }
