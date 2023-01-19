@@ -24,8 +24,8 @@ class Handler implements URLHandler {
                         listOfStrings.add(parameters[i]);
                     }
                     return String.format("New string added to the" +
-                    " list: %s There are now %d items in the list", 
-                    parameters[1], listLength);
+                    " list: %s \n There are now this many items in the list: %d", 
+                    parameters[1], size(listOfStrings));
                 }
             }
 
