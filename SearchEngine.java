@@ -7,7 +7,15 @@ class Handler implements URLHandler {
 
     ArrayList<String> listOfStrings = new ArrayList<String>();
 
-    int listLength = 0;
+    // int listLength = 0;
+    public String printArray() {
+        String finalString = "";
+        for (int i = 0; i < listOfStrings.size(); i++) {
+            finalString += listOfStrings.get(i) +"\t";
+        }
+        return finalString;
+
+    }
 
     public String handleRequest(URI url) {
 
@@ -19,13 +27,13 @@ class Handler implements URLHandler {
             if (url.getPath().contains("/add")) {
                 String[] parameters = url.getQuery().split("=");
                 if (parameters[0].equals("s")) {
-                    listLength++;
                     for (int i = 1; i < parameters.length; i++) {
                         listOfStrings.add(parameters[i]);
                     }
-                    return String.format("New string added to the" +
-                    " list: %s \n There are now this many items in the list: %d", 
-                    parameters[1], size(listOfStrings));
+                    String printedArray = printArray();
+                    return String.format("TESTING" +
+                    "'%s' added to the list.\nThere are now this many items in the list: %d \n List: %s", 
+                    parameters[1], listOfStrings.size(), printedArray);
                 }
             }
 
